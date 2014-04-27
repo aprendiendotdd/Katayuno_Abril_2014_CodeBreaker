@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeBreakerTest
+namespace CodeBreaker
 {
-    public class Class1
+    public class Code
     {
+      public string GetCode()
+      {
+        return "RANI";
+      }
     }
 }
