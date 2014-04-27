@@ -8,6 +8,8 @@ namespace CodeBreaker
 {
     public class Code
     {
+      public static string[] AllowedChars = new string[] { "R", "A", "M", "V", "I", "N" };
+
       public string GetCode()
       {
         return "RANI";

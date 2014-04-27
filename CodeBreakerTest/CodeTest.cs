@@ -12,12 +12,18 @@ namespace CodeBreakerTest
   public class CodeTest
   {
     [Test]
-    public void ReturnStringLengthFour()
+    public void ReturnCodeLengthFour()
     {
-      int expected = 4;
-      CodeBreaker.Code code = new Code();
-      int result = code.GetCode().Length;
-      Assert.AreEqual(expected, result);
+      var code = new Code();
+      Assert.AreEqual(4, code.GetCode().Length);
+    }
+
+    [Test]
+    public void ReturnCodeWithAllowedChars()
+    {
+      var code = new Code();
+      var result = code.GetCode();
+      result.ToList().ForEach(x => Assert.Contains(x.ToString(), Code.AllowedChars));
     }
   }
 }
