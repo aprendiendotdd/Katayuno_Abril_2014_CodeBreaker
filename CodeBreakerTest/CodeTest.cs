@@ -11,19 +11,31 @@ namespace CodeBreakerTest
   [TestFixture]
   public class CodeTest
   {
+    private Code _code;
+
+    [SetUp]
+    public void SetUp()
+    {
+      _code = new Code();
+    }
+
     [Test]
     public void ReturnCodeLengthFour()
     {
-      var code = new Code();
-      Assert.AreEqual(4, code.GetCode().Length);
+      Assert.AreEqual(4, _code.GetCode().Length);
     }
 
     [Test]
     public void ReturnCodeWithAllowedChars()
     {
-      var code = new Code();
-      var result = code.GetCode();
+      var result = _code.GetCode();
       result.ToList().ForEach(x => Assert.Contains(x.ToString(), Code.AllowedChars));
+    }
+
+    [Test]
+    public void FirstCodeMustBeDistinctToSecondCode()
+    {
+      Assert.That(_code.GetCode(), Is.Not.EqualTo(_code.GetCode()));
     }
   }
 }
