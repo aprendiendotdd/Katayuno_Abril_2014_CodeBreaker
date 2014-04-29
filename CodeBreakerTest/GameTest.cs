@@ -23,10 +23,10 @@ namespace CodeBreakerTest
     [Test]
     public void ReturnXWhenACharCodeAndPasswordIsTheSame()
     {
-      Assert.AreEqual("X", _game.GetResultGame("RRRR", "RAAA"));
-      Assert.AreEqual("X", _game.GetResultGame("RRRR", "ARAA"));
-      Assert.AreEqual("X", _game.GetResultGame("RRRR", "AARA"));
-      Assert.AreEqual("X", _game.GetResultGame("RRRR", "AAAR"));
+      Assert.AreEqual("X", _game.GetResultGame("RAMV", "RNNN"));
+      Assert.AreEqual("X", _game.GetResultGame("RAMV", "NANN"));
+      Assert.AreEqual("X", _game.GetResultGame("RAMV", "NNMN"));
+      Assert.AreEqual("X", _game.GetResultGame("RAMV", "NNNV"));
     }
 
     [Test]
@@ -35,6 +35,12 @@ namespace CodeBreakerTest
       Assert.AreEqual("XX", _game.GetResultGame("RAMV", "RANN"));
       Assert.AreEqual("XXX", _game.GetResultGame("RAMV", "RAMN"));
       Assert.AreEqual("XXXX", _game.GetResultGame("RAMV", "RAMV"));
+    }
+
+    [Test]
+    public void ReturnAsteriskWhenFindAColor()
+    {
+      Assert.AreEqual("*", _game.GetResultGame("RANI", "MVRM"));
     }
   }
 }

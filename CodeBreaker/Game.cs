@@ -15,8 +15,10 @@ namespace CodeBreaker
       {
         if (code[i] == password[i])
           result += "X";
+        else if (password.Contains(code[i]))
+          result += "*";
       }
-
+      
       return result;
     }
   }
