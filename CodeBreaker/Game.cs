@@ -10,6 +10,8 @@ namespace CodeBreaker
   {
     public string GetResultGame(string code, string password)
     {
+      if (code[0] == password[0])
+        return "X";
       return "";
     }
   }
