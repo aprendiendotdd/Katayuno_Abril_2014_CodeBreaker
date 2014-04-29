@@ -17,7 +17,14 @@ namespace CodeBreakerTest
     public void ReturnXWhenFirstCharCodeAndPasswordIsTheSame()
     {
       var game = new Game();
-      Assert.AreEqual("X", game.GetResultGame("RRRR", "RAAAA"));
+      Assert.AreEqual("X", game.GetResultGame("RRRR", "RAAA"));
+    }
+
+    [Test]
+    public void ReturnXWhenSecondCharCodeAndPasswordIsTheSame()
+    {
+      var game = new Game();
+      Assert.AreEqual("X", game.GetResultGame("RRRR", "ARAA"));
     }
   }
 }

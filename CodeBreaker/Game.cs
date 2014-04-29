@@ -12,6 +12,8 @@ namespace CodeBreaker
     {
       if (code[0] == password[0])
         return "X";
+      else if (code[1] == password[1])
+        return "X";
       return "";
     }
   }
