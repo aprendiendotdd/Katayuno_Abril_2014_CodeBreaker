@@ -50,5 +50,13 @@ namespace CodeBreakerTest
       Assert.AreEqual("***", _game.GetResultGame("RANI", "INRM"));
       Assert.AreEqual("****", _game.GetResultGame("RANI", "INRA"));
     }
+
+    [Test]
+    public void ReturnXAndAsteriskWhenFindPositionAndColor()
+    {
+      Assert.AreEqual("X*", _game.GetResultGame("RANI", "YNYI"));
+      Assert.AreEqual("X**", _game.GetResultGame("NRRI", "RRVN"));
+      Assert.AreEqual("XX*", _game.GetResultGame("NRRI", "RRRN"));
+    }
   }
 }
