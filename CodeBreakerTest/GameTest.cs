@@ -42,5 +42,13 @@ namespace CodeBreakerTest
     {
       Assert.AreEqual("*", _game.GetResultGame("RANI", "MVRM"));
     }
+
+    [Test]
+    public void ReturnMoreAsteriskWhenFindTwoOrMoreColor()
+    {
+      Assert.AreEqual("**", _game.GetResultGame("RANI", "INMM"));
+      Assert.AreEqual("***", _game.GetResultGame("RANI", "INRM"));
+      Assert.AreEqual("****", _game.GetResultGame("RANI", "INRA"));
+    }
   }
 }
