@@ -24,8 +24,7 @@ namespace CodeBreakerTest
     [Test]
     public void ReturnCodeWithAllowedChars()
     {
-      var result = _code.GetCode();
-      result.ToList().ForEach(x => Assert.Contains(x.ToString(), Code.AllowedChars));
+      _code.GetCode().ToList().ForEach(x => Assert.Contains(x.ToString(), Code.AllowedChars));
     }
 
     [Test]
