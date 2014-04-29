@@ -10,11 +10,14 @@ namespace CodeBreaker
   {
     public string GetResultGame(string code, string password)
     {
-      if (code[0] == password[0])
-        return "X";
-      else if (code[1] == password[1])
-        return "X";
-      return "";
+      var result = string.Empty;
+      for (int i = 0; i < code.Length; i++)
+      {
+        if (code[i] == password[i])
+          result += "X";
+      }
+
+      return result;
     }
   }
 }
