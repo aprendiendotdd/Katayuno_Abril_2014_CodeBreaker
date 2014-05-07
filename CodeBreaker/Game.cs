@@ -8,25 +8,48 @@ namespace CodeBreaker
 {
   public class Game
   {
-    private static string POSITION = "X";
-    private static string COLOR = "*";
-    public string GetResultGame(string code, string password)
-    {
-      var resultPosition = string.Empty; 
-      var resultColor = string.Empty;
-      for (var i = 0; i < code.Length; i++)
-        resultPosition = FindPositionOrColor(code, password, i, resultPosition, ref resultColor);
-      
-      return resultPosition + resultColor;
-    }
+      int position;
+      int longitud = 4;
 
-    private static string FindPositionOrColor(string code, string password, int i, string resultPosition, ref string resultColor)
-    {
-      if (code[i] == password[i])
-        resultPosition += POSITION;
-      else if (password.Contains(code[i]))
-        resultColor += COLOR;
-      return resultPosition;
-    }
+      public string GetResultGame(string code, string password)
+      {
+          position = 0;
+          return resultGame(code, password);
+      }
+
+      private string resultGame(string code, string password)
+      {
+          if (position == longitud - 1)
+          {
+              return returnValue(code, password);
+          }
+          else
+          {
+              string value = returnValue(code, password);
+              position++;
+              return ordenarResult(value, resultGame(code, password));
+          }
+      }    
+
+      private string returnValue(string code, string password)
+      {
+          if ((code[position] == password[position]))
+          {
+              return "X";
+          }
+          else if (password.Contains(code[position]))
+          {
+              return "*";
+          }
+          else
+          {
+              return "";
+          }          
+      }
+
+      private string ordenarResult(string value, string password)
+      {
+          return (value == "*") ? password + value : value + password;
+      }
   }
 }

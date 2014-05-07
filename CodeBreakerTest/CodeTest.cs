@@ -7,30 +7,30 @@ namespace CodeBreakerTest
   [TestFixture]
   public class CodeTest
   {
-    private Code _code;
+    private Code code;
 
     [SetUp]
     public void SetUp()
     {
-      _code = new Code();
+      code = new Code();
     }
 
     [Test]
     public void ReturnCodeLengthFour()
     {
-      Assert.AreEqual(4, _code.GetCode().Length);
+      Assert.AreEqual(4, code.GetCode().Length);
     }
 
     [Test]
     public void ReturnCodeWithAllowedChars()
     {
-      _code.GetCode().ToList().ForEach(x => Assert.Contains(x.ToString(), Code.AllowedChars));
+      code.GetCode().ToList().ForEach(x => Assert.Contains(x.ToString(), Code.AllowedChars));
     }
 
     [Test]
     public void FirstCodeMustBeDistinctToSecondCode()
     {
-      Assert.That(_code.GetCode(), Is.Not.EqualTo(_code.GetCode()));
+      Assert.That(code.GetCode(), Is.Not.EqualTo(code.GetCode()));
     }
   }
 }
